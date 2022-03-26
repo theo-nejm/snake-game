@@ -6,13 +6,15 @@ const canvasContext = canvas.getContext('2d');
 
 const snake = new Snake(200, 200, 20);
 let apple = new Apple(canvas, snake);
+let gameInterval;
+let isGameOver = false;
 
 window.onload = () => {
   gameLoop();
 }
 
 function gameLoop() {
-  setInterval(show, 1000 / 10);
+  gameInterval = setInterval(show, 1000 / 10);
 }
 
 function show() {
@@ -23,8 +25,14 @@ function show() {
 function update() {
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
   snake.move();
+  checkSelfHit();
   eatApple();
   checkWallHit();
+}
+
+function gameOver() {
+  clearInterval(gameInterval);
+  isGameOver = true;
 }
 
 function checkWallHit() {
@@ -40,8 +48,13 @@ function checkWallHit() {
   }
 }
 
-function gameOver() {
-  document.write('game over');
+function checkSelfHit() {
+  const snakeHead = snake.tail[snake.tail.length - 1];
+  for(let i = 0; i < snake.tail.length - 1; i++) {
+    if(snakeHead.x === snake.tail[i].x && snakeHead.y === snake.tail[i].y) {
+      gameOver();
+    }
+  }
 }
 
 function eatApple() {
@@ -53,17 +66,26 @@ function eatApple() {
 }
 
 function draw() {
-  createRect(0, 0, canvas.width, canvas.height, "#FAFAFA");
+  if(isGameOver) {
+    createRect(0, 0, canvas.width, canvas.height, 'rgba(255, 50, 50, .75)'); 
 
-  for(let i = 0; i < snake.tail.length; i++) {
-    createRect(snake.tail[i].x, snake.tail[i].y, 20 - 1, 20 - 1, "#2C2C2C");
+    canvasContext.font = "48px Arial";
+    canvasContext.fillStyle = "#FAFAFA";
+    canvasContext.fillText("GAME OVER! ", 48, 160);
+    canvasContext.fillText("Score: " +  (snake.tail.length - 1), 96, 260);
+  } else {
+    createRect(0, 0, canvas.width, canvas.height, "#FAFAFA");
+
+    for(let i = 0; i < snake.tail.length; i++) {
+      createRect(snake.tail[i].x, snake.tail[i].y, 20 - 1, 20 - 1, "#2C2C2C");
+    }
+  
+    canvasContext.font = "20px Arial";
+    canvasContext.fillStyle = "#00FF42";
+    canvasContext.fillText("Score: " +  (snake.tail.length - 1), (canvas.width - 120), 18);
+  
+    createRect(apple.x, apple.y, apple.size, apple.size, 'red');  
   }
-
-  canvasContext.font = "20px Arial";
-  canvasContext.fillStyle = "#00FF42";
-  canvasContext.fillText("Score: " +  (snake.tail.length - 1), (canvas.width - 120), 18);
-
-  createRect(apple.x, apple.y, apple.size, apple.size, 'red');
 }
 
 function createRect(x, y, sizeX, sizeY, color) {
