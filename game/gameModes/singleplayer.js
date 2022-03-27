@@ -1,7 +1,7 @@
-import Apple from "../Apple.js";
+import Apple from "../domain/Apple.js";
 import { createRect } from "../shared/canvasActions.js";
 import { checkSelfHit, checkWallHit, eatApple, show } from "../shared/gameActions.js";
-import Snake from "../Snake.js";
+import Snake from "../domain/Snake.js";
 
 let isGameOver = false;
 
@@ -10,7 +10,8 @@ const canvasContext = canvas.getContext('2d');
 let gameInterval;
 
 const snake = new Snake(200, 200, 20);
-var apple = new Apple(canvas, snake);
+
+let apple = new Apple(canvas, snake);
 
 export function singleplayerLoop() {
   gameInterval = setInterval(() => show(update, draw), 1000 / 10);
@@ -19,8 +20,8 @@ export function singleplayerLoop() {
 function update() {
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
   snake.move();
-  checkSelfHit(snake, isGameOver, gameInterval);
-  eatApple(snake, apple, canvas);
+  isGameOver = !!checkSelfHit(snake, gameInterval);
+  apple = eatApple(snake, apple, canvas);
   checkWallHit(snake, canvas);
 }
 
@@ -44,7 +45,6 @@ function draw() {
     canvasContext.fillText("Score: " +  (snake.tail.length - 1), (canvas.width - 120), 18);
   
     createRect(apple.x, apple.y, apple.size, apple.size, 'red', canvasContext);
-    console.log('apple drawn: ' + apple.x, apple.y);
   }
 }
 

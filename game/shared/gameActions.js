@@ -1,4 +1,4 @@
-import Apple from "../Apple.js";
+import Apple from "../domain/Apple.js";
 
 function show(update, draw) {
   update();
@@ -18,11 +18,11 @@ function checkWallHit(snake, canvas) {
   }
 }
 
-function checkSelfHit(snake, isGameOver, gameInterval) {
+function checkSelfHit(snake, gameInterval) {
   const snakeHead = snake.tail[snake.tail.length - 1];
   for(let i = 0; i < snake.tail.length - 1; i++) {
     if(snakeHead.x === snake.tail[i].x && snakeHead.y === snake.tail[i].y) {
-      gameOver(isGameOver, gameInterval);
+      return gameOver(gameInterval);
     }
   }
 }
@@ -31,13 +31,16 @@ function eatApple(snake, apple, canvas) {
   if(snake.tail[snake.tail.length -1].x === apple.x && snake.tail[snake.tail.length -1].y === apple.y) {
     snake.tail[snake.tail.length] = { x: apple.x, y: apple.y };
 
-    apple = new Apple(canvas, snake);
+    return new Apple(canvas, snake);
   }
+
+  return apple;
 }
 
-function gameOver(isGameOver, gameInterval) {
+function gameOver(gameInterval) {
   clearInterval(gameInterval);
-  isGameOver = true;
+  
+  return true;
 }
 
 export {
