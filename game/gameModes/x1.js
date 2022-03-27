@@ -10,16 +10,20 @@ const canvas = document.getElementById('game');
 const canvasContext = canvas.getContext('2d');
 let gameInterval;
 
-const player1 = new Player({ x: 60, y: 80, size: 20, name: 'Player 1' });
-const player2 = new Player({ x: 320, y: 80, size: 20, name: 'Player 2' });
+let player1;
+let player2;
 
-const apples = [new Apple(canvas, player1, player2)]
+let apples;
 
-const applesInterval = setInterval(() => {
-  apples.push(new Apple(canvas, player1, player2));
-}, 2 * 1000);
+let applesInterval;
 
-export function x1Loop() {
+function x1Loop() {
+  player1 = new Player({ x: 60, y: 80, size: 20, name: 'Player 1' });
+  player2 = new Player({ x: 320, y: 80, size: 20, name: 'Player 2' });
+  
+  apples = [new Apple(canvas, player1, player2)]
+
+  applesInterval = setInterval(() => apples.push(new Apple(canvas, player1, player2)), 2 * 1000);
   gameInterval = setInterval(() => show(update, draw), 1000 / 10);
 }
 

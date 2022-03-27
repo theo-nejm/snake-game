@@ -6,12 +6,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../styles/global.css">
   <link rel="stylesheet" href="../../styles/game.css">
+
   <title>Document</title>
 </head>
 <body>
-  <canvas height="600" width="600" id="game"></canvas>
+  <main>
+    <div class="top">
+      <div>
+        <img src="../../assets/pacific-icon.svg" alt="Solo mode">
+        <div>
+          <h1>Pacific battle</h1>
+          <p>Try this mode with friends, go beat'em!</p>
+        </div>
+      </div>
+      <button class="tutorial" id="tutorial">
+        <img src="../../assets/check-icon.svg" alt="Tutorial">
+      </button>
+      <button id="start-game" class="button">START GAME</button>
+    </div>
+    <div class="bottom">
+      <div class="game-board">
+        <h3>Game board</h3>
+      </div>
+      <canvas height="600" width="600" id="game"></canvas>
+    </div>
+    <div class="tutorial-overlay" id="tutorial-content">
+      <div class="tutorial-content">
+        <div class="about-the-game">
+          <img src="../../assets/snake-logo.svg" alt="About the game">
+          <div>
+            <h3>About the game mode</h3>
+            <p>In this mode, players collision isn't active, so the objective is to get as most fruits as you can. Get the fruits faster than your friend, but caution with your own tail!</p>
+          </div>
+        </div>
+        <div class="how-to-play">
+          <img src="../../assets/videogame-control.svg" alt="About the game" class="control">
+          <div>
+            <h3>How to play?</h3>
+            <p>Player 1 controls the snake with keyboard's arrows.<br/> Player 2 controls the snake with<br/>W, A, S and D keys.</p>
+          </div>
+        </div>
+        <button class="button" id="close-tutorial">
+          EXIT
+        </button>
+      </div>
+    </div>
+  </main>
+
   <script src="../../game/gameModes/x1.js" type="module"></script>
+  <script src="../../scripts/index.js" type="module"></script>
 </body>
 </html>
-
-
