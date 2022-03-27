@@ -58,7 +58,7 @@ function draw() {
 }
 
 window.addEventListener('keydown', (ev) => {
-  ev.preventDefault();
+  if(['ArrowUp', 'ArrowDown'].includes(ev.key)) ev.preventDefault();
 
   setTimeout(() => {
     if(ev.keyCode == 37 && snake.rotateX !== 1) {
