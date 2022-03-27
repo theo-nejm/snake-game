@@ -150,6 +150,7 @@ section.about-the-game .center .left .description p {
 
 section.about-the-game .center .left .description .button {
   width: 50%;
+  text-align: center;
 }
 
 section.about-the-game .center .right {
