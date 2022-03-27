@@ -18,13 +18,31 @@ function checkWallHit(snake, canvas) {
   }
 }
 
-function checkSelfHit(snake, gameInterval, applesInterval) {
+function checkSelfHit(snake) {
   const snakeHead = snake.tail[snake.tail.length - 1];
   for(let i = 0; i < snake.tail.length - 1; i++) {
     if(snakeHead.x === snake.tail[i].x && snakeHead.y === snake.tail[i].y) {
-      return gameOver(gameInterval, applesInterval);
+      return true;
     }
   }
+}
+
+function checkPlayersHit(snake1, snake2) {
+  for(let i = 0; i < snake1.tail.length; i++) {
+    const snake2Head = snake2.tail[snake2.tail.length - 1]
+    if(snake2Head.x === snake1.tail[i].x && snake2Head.y === snake1.tail[i].y) {
+      return -1;
+    }
+  }
+
+  for(let i = 0; i < snake2.tail.length; i++) {
+    const snake1Head = snake1.tail[snake1.tail.length - 1]
+    if(snake1Head.x === snake2.tail[i].x && snake1Head.y === snake2.tail[i].y) {
+      return 1;
+    }
+  }
+
+  return 0;
 }
 
 function eatApple(snake, apples, canvas) {
@@ -39,11 +57,11 @@ function eatApple(snake, apples, canvas) {
 
 function gameOver(gameInterval, applesInterval) {
   clearInterval(gameInterval);
-  clearInterval(applesInterval)
+  clearInterval(applesInterval);
   
   return true;
 }
 
 export {
-  show, checkWallHit, checkSelfHit, eatApple, gameOver
+  show, checkWallHit, checkSelfHit, eatApple, gameOver, checkPlayersHit
 } 
