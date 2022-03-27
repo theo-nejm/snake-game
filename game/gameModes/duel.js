@@ -102,7 +102,7 @@ function draw() {
 }
 
 window.addEventListener('keydown', (ev) => {
-  ev.preventDefault();
+  if(['ArrowUp', 'ArrowDown'].includes(ev.key)) ev.preventDefault();
 
   setTimeout(() => {
     if(ev.key == 'ArrowLeft' && player1.rotateX !== 1) {

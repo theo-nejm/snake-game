@@ -21,7 +21,7 @@ export function singleplayerLoop() {
   gameInterval = setInterval(() => show(update, draw), 1000 / 10);
   applesInterval = setInterval(() => {
     apples.push(new Apple(canvas, snake));
-  }, 10 * 1000);
+  }, 3 * 1000);
 }
 
 function update() {
