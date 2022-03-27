@@ -4,13 +4,115 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/styles.css">
 
   <title>Snake game</title>
 </head>
 <body>
-  <canvas height="400" width="400" id="game"></canvas>
+  <header>
+    <img src="logo" alt="Logo" />
+    <ul class="actions">
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">About the game</a>
+      </li>
+      <li>
+        <a href="#">Play modes</a>
+      </li>
+      <li>
+        <a href="#">My stats</a>
+      </li>
+    </ul>
 
+    <button class="btn login">Quick play</button>
+  </header>
+  
+  <main>
+    <section>
+      <div class="left">
+        <p>Lets start!</p>
+        <h1>Home introducing</h1>
+        <p>Description</p>
+        <button>CTA</button>
+      </div>
+      <div class="right">
+        Image
+      </div>
+    </section>
+
+    <div id="about-the-game">
+      <div class="left">
+        <div class="image">
+
+        </div>
+        <div class="description">
+          <h2>Topic</h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita error qui dignissimos provident nihil quia, iusto doloribus dolorem natus fugiat debitis adipisci ut, voluptatem mollitia quis tempore quisquam. Tenetur, consequatur!
+          </p>
+          <button>Play</button>
+        </div>
+      </div>
+      <div class="right">
+        <div class="topic">
+          <div class="illustration">
+            Illustration
+          </div>
+          <div class="text">
+            <h3>Title</h3>
+            <p class="description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio facilis natus assumenda eum tempora aliquid deserunt est perferendis nemo.
+            </p>
+          </div>  
+        </div>
+        <div class="topic">
+          <div class="illustration">
+            Illustration
+          </div>
+          <div class="text">
+            <h3>Title</h3>
+            <p class="description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio facilis natus assumenda eum tempora aliquid deserunt est perferendis nemo.
+            </p>
+          </div>
+        </div>
+        <div class="topic">
+          <div class="illustration">
+            Illustration
+          </div>
+          <div class="text">
+            <h3>Title</h3>
+            <p class="description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio facilis natus assumenda eum tempora aliquid deserunt est perferendis nemo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="game-modes">
+      <div class="card">
+        <div class="text">Texto breve</div>
+        <div class="illustration">Ilustração</div>
+      </div>
+      <div class="card">
+        <div class="text">Texto breve</div>
+        <div class="illustration">Ilustração</div>
+      </div>
+      <div class="card">
+        <div class="text">Texto breve</div>
+        <div class="illustration">Ilustração</div>
+      </div>
+    </div>
+  </main>
+  <div class="your-stats">
+    <div class="stats">
+      Gerado dinamicamente
+    </div>
+  </div>
+  <footer></footer>
+  <canvas height="400" width="400" id="game"></canvas>
   <script src="game/game.js" type="module"></script>
 </body>
 </html>
