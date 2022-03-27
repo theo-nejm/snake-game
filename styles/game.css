@@ -127,6 +127,14 @@ main .bottom .game-board {
   gap: 1rem;
 }
 
+.tutorial-content div.about-the-game {
+  margin-top: 1.5rem;
+}
+
+.tutorial-content div.how-to-play {
+  margin-bottom: .5rem;
+}
+
 .tutorial-content div img {
   height: 6rem;
   width: 6rem;
@@ -149,7 +157,6 @@ main .bottom .game-board {
 
 .tutorial-content button {
   width: 100%;
-  margin-top: 1rem;
 }
 
 #game {
