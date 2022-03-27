@@ -4,115 +4,140 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <link rel="stylesheet" href="styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
 
   <title>Snake game</title>
 </head>
 <body>
   <header>
-    <img src="logo" alt="Logo" />
+    <img src="assets/snake-logo.svg" alt="Logo" class="logo" />
     <ul class="actions">
       <li>
-        <a href="#">Home</a>
+        <a href="#home">Home</a>
       </li>
       <li>
-        <a href="#">About the game</a>
+        <a href="#about-the-game">About</a>
       </li>
       <li>
-        <a href="#">Play modes</a>
+        <a href="#game-modes">Modes</a>
       </li>
       <li>
-        <a href="#">My stats</a>
+        <a href="#my-stats">Stats</a>
       </li>
     </ul>
 
-    <button class="btn login">Quick play</button>
+    <button class="btn login">QUICK PLAY</button>
   </header>
   
   <main>
-    <section>
+    <section class="home-info" id="home">
       <div class="left">
-        <p>Lets start!</p>
-        <h1>Home introducing</h1>
-        <p>Description</p>
-        <button>CTA</button>
+        <p>Lets get started!</p>
+        <h1>
+          The famous <span>snake game</span>, <br /> 
+          <span class="reread">but different!</span>
+        </h1>
+        <p class="description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus officiis repudiandae minima esse, blanditiis eum, sapiente molestiae veniam quos deserunt non cum eius nesciunt quaerat quasi sunt soluta in praesentium!
+        </p>
+        <button>PLAY NOW</button>
       </div>
       <div class="right">
-        Image
+        <img src="assets/videogame-control.svg" alt="A videogame control">
       </div>
     </section>
 
-    <div id="about-the-game">
-      <div class="left">
-        <div class="image">
+    <section class="about-the-game" id="about-the-game">
+      <div class="center">
+        <div class="left">
+          <img src="assets/fliperama.svg" alt="Man playing videogame" class="fliperama">
+          <div class="description">
+            <h3>Have fun!</h3>
+            <p>
+              Now, the game was reread and we added new modes. You can play it with friends where you want, with just a computer!
+            </p>
+            <button>PLAY</button>
+          </div>
+        </div>
+        <div class="right">
+          <div class="topic">
+            <img src="assets/play-icon.svg" alt="Play icon" class="illustration">
+            <div class="text">
+              <h4>Play everywhere</h4>
+              <p class="description">
+                If you have a computer, you can play it just opening this site!
+              </p>
+            </div>  
+          </div>
+          <div class="topic">
+            <img src="assets/check-icon.svg" alt="Play icon" class="illustration">
+            <div class="text">
+              <h4>Guaranteed fun</h4>
+              <p class="description">
+                If you like snake game, you will like even more this features!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        </div>
-        <div class="description">
-          <h2>Topic</h2>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita error qui dignissimos provident nihil quia, iusto doloribus dolorem natus fugiat debitis adipisci ut, voluptatem mollitia quis tempore quisquam. Tenetur, consequatur!
-          </p>
-          <button>Play</button>
-        </div>
-      </div>
-      <div class="right">
-        <div class="topic">
+    <section class="game-modes" id="game-modes">
+      <p>Now its time to...</p>
+      <h3>
+        Discover the <br />
+        game modes!
+      </h3>
+      <div class="cards">
+        <div class="card">
+          <div class="text">Singleplayer<br /><span>good to pratice!</span></div>
           <div class="illustration">
-            Illustration
+            <img src="assets/solo-logo.svg" alt="Singleplayer" class="solo">
           </div>
-          <div class="text">
-            <h3>Title</h3>
-            <p class="description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio facilis natus assumenda eum tempora aliquid deserunt est perferendis nemo.
-            </p>
-          </div>  
+          <a>
+            <img src="assets/play-icon.svg" alt="Play button">
+          </a>
         </div>
-        <div class="topic">
+        <div class="card">
+          <div class="text">
+            Pacific battle<br />
+            <span>try with friends!</span>
+          </div>
           <div class="illustration">
-            Illustration
+            <img src="assets/pacific-icon.svg" alt="Pacific battle">
           </div>
-          <div class="text">
-            <h3>Title</h3>
-            <p class="description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio facilis natus assumenda eum tempora aliquid deserunt est perferendis nemo.
-            </p>
-          </div>
+          <a>
+            <img src="assets/play-icon.svg" alt="Play button">
+          </a>
         </div>
-        <div class="topic">
+        <div class="card">
+          <div class="text">Duel<br/>
+            <span>real challenge!</span>
+          </div>
           <div class="illustration">
-            Illustration
+            <img src="assets/duel-icon.svg" alt="Duel">
           </div>
-          <div class="text">
-            <h3>Title</h3>
-            <p class="description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio facilis natus assumenda eum tempora aliquid deserunt est perferendis nemo.
-            </p>
-          </div>
+          <a>
+            <img src="assets/play-icon.svg" alt="Play button">
+          </a>
         </div>
       </div>
-    </div>
-    <div class="game-modes">
-      <div class="card">
-        <div class="text">Texto breve</div>
-        <div class="illustration">Ilustração</div>
+    </section>
+
+    <section class="stats" id="my-stats">
+      <div class="stats">
+        Gerado dinamicamente
       </div>
-      <div class="card">
-        <div class="text">Texto breve</div>
-        <div class="illustration">Ilustração</div>
-      </div>
-      <div class="card">
-        <div class="text">Texto breve</div>
-        <div class="illustration">Ilustração</div>
-      </div>
-    </div>
+    </section>
   </main>
-  <div class="your-stats">
-    <div class="stats">
-      Gerado dinamicamente
-    </div>
-  </div>
+
   <footer></footer>
   <canvas height="400" width="400" id="game"></canvas>
+  <script src="scripts/index.js" type="module"></script>
   <script src="game/game.js" type="module"></script>
 </body>
 </html>
