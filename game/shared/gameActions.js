@@ -18,27 +18,28 @@ function checkWallHit(snake, canvas) {
   }
 }
 
-function checkSelfHit(snake, gameInterval) {
+function checkSelfHit(snake, gameInterval, applesInterval) {
   const snakeHead = snake.tail[snake.tail.length - 1];
   for(let i = 0; i < snake.tail.length - 1; i++) {
     if(snakeHead.x === snake.tail[i].x && snakeHead.y === snake.tail[i].y) {
-      return gameOver(gameInterval);
+      return gameOver(gameInterval, applesInterval);
     }
   }
 }
 
-function eatApple(snake, apple, canvas) {
-  if(snake.tail[snake.tail.length -1].x === apple.x && snake.tail[snake.tail.length -1].y === apple.y) {
-    snake.tail[snake.tail.length] = { x: apple.x, y: apple.y };
-
-    return new Apple(canvas, snake);
-  }
-
-  return apple;
+function eatApple(snake, apples, canvas) {
+  apples.forEach((apple, index) => {
+    if(snake.tail[snake.tail.length -1].x === apple.x && snake.tail[snake.tail.length -1].y === apple.y) {
+      snake.tail[snake.tail.length] = { x: apple.x, y: apple.y };
+  
+      apples.splice(index, 1);
+    }
+  });
 }
 
-function gameOver(gameInterval) {
+function gameOver(gameInterval, applesInterval) {
   clearInterval(gameInterval);
+  clearInterval(applesInterval)
   
   return true;
 }

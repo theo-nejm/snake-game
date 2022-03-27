@@ -13,7 +13,11 @@ let gameInterval;
 const player1 = new Player({ x: 60, y: 80, size: 20, name: 'Player 1' });
 const player2 = new Player({ x: 320, y: 80, size: 20, name: 'Player 2' });
 
-let apple = new Apple(canvas, player1, player2);
+const apples = [new Apple(canvas, player1, player2)]
+
+const applesInterval = setInterval(() => {
+  apples.push(new Apple(canvas, player1, player2));
+}, 2 * 1000);
 
 export function x1Loop() {
   gameInterval = setInterval(() => show(update, draw), 1000 / 10);
@@ -23,10 +27,10 @@ function update() {
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
   player1.move();
   player2.move();
-  player1Lost = !!checkSelfHit(player1, gameInterval);
-  player2Lost = !!checkSelfHit(player2, gameInterval);
-  apple = eatApple(player1, apple, canvas);
-  apple = eatApple(player2, apple, canvas);
+  player1Lost = !!checkSelfHit(player1, gameInterval, applesInterval);
+  player2Lost = !!checkSelfHit(player2, gameInterval, applesInterval);
+  eatApple(player1, apples, canvas);
+  eatApple(player2, apples, canvas);
   checkWallHit(player1, canvas);
   checkWallHit(player2, canvas);
 }
@@ -39,11 +43,11 @@ function draw() {
   }
 
   for(let i = 0; i < player1.tail.length; i++) {
-    createRect(player1.tail[i].x, player1.tail[i].y, 20 - 1, 20 - 1, "lightgreen", canvasContext);
+    createRect(player1.tail[i].x, player1.tail[i].y, player1.size - 1, player1.size - 1, "lightgreen", canvasContext);
   }
 
   for(let i = 0; i < player2.tail.length; i++) {
-    createRect(player2.tail[i].x, player2.tail[i].y, 20 - 1, 20 - 1, "lightblue", canvasContext);
+    createRect(player2.tail[i].x, player2.tail[i].y, player2.size - 1, player2.size - 1, "lightblue", canvasContext);
   }
   
   canvasContext.font = "20px Arial";
@@ -68,7 +72,9 @@ function draw() {
 
   canvasContext.fillText(`${player2.name} score: ` +  (player2.tail.length - 1), (canvas.width - 172), 24);
 
-  createRect(apple.x, apple.y, apple.size, apple.size, 'red', canvasContext);
+  apples.forEach(apple => {
+    createRect(apple.x, apple.y, apple.size, apple.size, 'red', canvasContext);
+  })
 }
 
 window.addEventListener('keydown', (ev) => {
@@ -104,3 +110,7 @@ window.addEventListener('keydown', (ev) => {
     }
   }, 1)
 });
+
+document.getElementById('start-game').onclick = () => {
+  x1Loop();
+}

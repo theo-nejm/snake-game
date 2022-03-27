@@ -8,8 +8,8 @@ export default class Apple {
       this.y = Math.floor(Math.random() * canvas.height / snake.size) * snake.size;
 
       for(let i = 0; i < snake.tail.length; i++) {
-        if(this.x === snake.tail[i].x && this.y === snake.tail[i].y 
-          || this.x === snake2?.tail[i].x && this.y === snake2?.tail[i].y) isTouching = true;
+        if(this.x === snake.tail[i].x && this.y === snake.tail[i].y
+          || this.x === snake2?.tail[i]?.x && this.y === snake2?.tail[i]?.y) isTouching = true;
       }
 
       this.size = snake.size;

@@ -1,0 +1,159 @@
+main {
+  background: var(--primary);
+  height: 100vh;
+  width: 100vw;
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+main .top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: flex-end;
+  background: var(--white);
+  width: 400px;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 0 12px 1px rgba(0, 0, 0, .2);
+  position: relative;
+}
+
+main .top div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+main .top h1 {
+  font-size: 1.6rem;
+  margin-bottom: .5rem;
+}
+
+main .top p {
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+main .top .tutorial {
+  cursor: pointer;
+  background: var(--white);
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  bottom: -1.5rem;
+  left: 1.5rem;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, .25);
+  transition: .25s ease-out;
+}
+
+main .top .tutorial img {
+  height: 100%;
+}
+
+main .top .tutorial:hover {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5rem;
+  width: 7.5rem;
+}
+
+main .top .tutorial:hover::before {
+  transition: .25s ease-out;
+  content: 'Tutorial';
+  color: var(--black);
+  margin-left: .75rem;
+}
+
+main .top .tutorial:hover img {
+  margin-left: 1rem;
+}
+
+main .top button {
+  width: 50%;
+}
+
+main .bottom .game-board {
+  color: var(--white);
+  margin-bottom: .5rem;
+}
+
+.tutorial-overlay {
+  display: none;
+}
+
+.tutorial-overlay.shown {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutorial-content {
+  background: var(--white);
+  padding: 1rem 2rem;
+  border-radius: .5rem;
+  box-shadow: 0 0 12px 1px rgba(0, 0, 0, .2);
+  height: 24rem;
+  width: 30rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.tutorial-content div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.tutorial-content div img {
+  height: 6rem;
+  width: 6rem;
+  background: var(--primary);
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.tutorial-content div img.control {
+  padding: .5rem;
+}
+
+.tutorial-content div div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .5rem;
+  justify-content: center;
+}
+
+.tutorial-content button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#game {
+  box-shadow: 0 0 12px 1px rgba(0, 0, 0, .2);
+  background: var(--white);
+  border-radius: .5rem;
+}

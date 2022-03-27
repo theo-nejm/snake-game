@@ -5,10 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/home.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="assets/snake-icon.png" type="image/x-icon">
 
   <title>Snake game</title>
 </head>
@@ -30,7 +32,7 @@
       </li>
     </ul>
 
-    <button class="btn login">QUICK PLAY</button>
+    <button class="button" class="btn login">QUICK PLAY</button>
   </header>
   
   <main>
@@ -42,9 +44,9 @@
           <span class="reread">but different!</span>
         </h1>
         <p class="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus officiis repudiandae minima esse, blanditiis eum, sapiente molestiae veniam quos deserunt non cum eius nesciunt quaerat quasi sunt soluta in praesentium!
+          Why not spend some time playing the popular snake game, but with new features and more fun? Now, you can challenge friends, train and compare your results to decide who is the best snake gamer of y'all! Lets get started?
         </p>
-        <button>PLAY NOW</button>
+        <button class="button">PLAY NOW</button>
       </div>
       <div class="right">
         <img src="assets/videogame-control.svg" alt="A videogame control">
@@ -60,7 +62,7 @@
             <p>
               Now, the game was reread and we added new modes. You can play it with friends where you want, with just a computer!
             </p>
-            <button>PLAY</button>
+            <button class="button">PLAY</button>
           </div>
         </div>
         <div class="right">
@@ -98,7 +100,7 @@
           <div class="illustration">
             <img src="assets/solo-logo.svg" alt="Singleplayer" class="solo">
           </div>
-          <a>
+          <a href="/play/singleplayer/">
             <img src="assets/play-icon.svg" alt="Play button">
           </a>
         </div>
@@ -110,7 +112,7 @@
           <div class="illustration">
             <img src="assets/pacific-icon.svg" alt="Pacific battle">
           </div>
-          <a>
+          <a href="/play/x1">
             <img src="assets/play-icon.svg" alt="Play button">
           </a>
         </div>
@@ -121,7 +123,7 @@
           <div class="illustration">
             <img src="assets/duel-icon.svg" alt="Duel">
           </div>
-          <a>
+          <a href="/play/duel">
             <img src="assets/play-icon.svg" alt="Play button">
           </a>
         </div>
@@ -136,8 +138,6 @@
   </main>
 
   <footer></footer>
-  <canvas height="400" width="400" id="game"></canvas>
   <script src="scripts/index.js" type="module"></script>
-  <script src="game/game.js" type="module"></script>
 </body>
 </html>

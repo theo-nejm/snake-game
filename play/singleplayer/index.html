@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../styles/global.css">
+  <link rel="stylesheet" href="../../styles/game.css">
+
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <div class="top">
+      <div>
+        <img src="../../assets/solo-logo.svg" alt="Solo mode">
+        <div>
+          <h1>Singleplayer mode</h1>
+          <p>A good mode to train, lets get started!</p>
+        </div>
+      </div>
+      <button class="tutorial" id="tutorial">
+        <img src="../../assets/check-icon.svg" alt="Tutorial">
+      </button>
+      <button id="start-game" class="button">START GAME</button>
+    </div>
+    <div class="bottom">
+      <div class="game-board">
+        <h3>Game board</h3>
+      </div>
+      <canvas height="400" width="400" id="game"></canvas>
+    </div>
+    <div class="tutorial-overlay" id="tutorial-content">
+      <div class="tutorial-content">
+        <div class="about-the-game">
+          <img src="../../assets/snake-logo.svg" alt="About the game">
+          <div>
+            <h3>About the game mode</h3>
+            <p>The game objective is to collect as many fruits (red squares in the screen) as you can. You just can't bite your tail, so take care of it!</p>
+          </div>
+        </div>
+        <div class="how-to-play">
+          <img src="../../assets/videogame-control.svg" alt="About the game" class="control">
+          <div>
+            <h3>How to play?</h3>
+            <p>To control your snake, use the arrow keys in your keyboard. The arrow up one moves the snake to top, arrow left to left and so on.</p>
+          </div>
+        </div>
+        <button class="button" id="close-tutorial">
+          EXIT
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../game/gameModes/singleplayer.js" type="module"></script>
+  <script src="../../scripts/index.js" type="module"></script>
+</body>
+</html>
