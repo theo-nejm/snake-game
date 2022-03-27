@@ -1,6 +1,5 @@
 export default class Apple {
   constructor(canvas, snake, snake2) {
-    console.log('criou apple')
     let isTouching;
     while(true) {
       isTouching = false;
@@ -17,7 +16,5 @@ export default class Apple {
 
       if(!isTouching) break;
     }
-
-    console.log(this.x, this.y);
   }
 }
